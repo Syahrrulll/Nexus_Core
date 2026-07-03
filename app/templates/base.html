@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexus Platform | Platform pembelajaran interaktif arsitektur sistem, daemon, dan Docker">
+    <title>{{ title }} | Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <div class="logo-icon"><i class="fas fa-terminal"></i></div>
+                <span class="logo-text">Nexus<span class="logo-accent">Core</span></span>
+            </a>
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/os-concepts" class="nav-link"><i class="fas fa-microchip"></i> Konsep Sistem</a></li>
+                <li><a href="/daemon" class="nav-link"><i class="fas fa-server"></i> Daemon</a></li>
+                <li><a href="/orders" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="/docker-guide" class="nav-link"><i class="fab fa-docker"></i> Docker</a></li>
+                <li><a href="/team" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-terminal"></i>
+                <span>Nexus — Ilmu Komputer 2023</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Syahrulll/ilkom-23-os-kelompok-1" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/particles.js"></script>
+    <script src="/static/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

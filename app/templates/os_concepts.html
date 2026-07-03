@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-content">
+        <h1>Konsep Arsitektur Sistem</h1>
+        <p>Memahami inti dari arsitektur sistem modern</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="content-cards">
+        <div class="content-card" data-delay="0">
+            <div class="card-number">01</div>
+            <h2>Apa itu Arsitektur Sistem?</h2>
+            <p>Sistem operasi adalah perangkat lunak inti pada komputer yang mengelola perangkat keras dan menyediakan layanan untuk menjalankan aplikasi. OS bertindak sebagai penghubung antara hardware dan software, memungkinkan program dijalankan dengan efisien.</p>
+        </div>
+        <div class="content-card" data-delay="100">
+            <div class="card-number">02</div>
+            <h2>Fungsi Utama OS</h2>
+            <div class="function-list">
+                <div class="function-item"><i class="fas fa-tasks"></i><span><strong>Manajemen Proses</strong> — Mengatur eksekusi program</span></div>
+                <div class="function-item"><i class="fas fa-memory"></i><span><strong>Manajemen Memori</strong> — Mengalokasi RAM ke program</span></div>
+                <div class="function-item"><i class="fas fa-hdd"></i><span><strong>Manajemen Storage</strong> — Mengatur penyimpanan data</span></div>
+                <div class="function-item"><i class="fas fa-network-wired"></i><span><strong>Manajemen I/O</strong> — Mengontrol perangkat input/output</span></div>
+                <div class="function-item"><i class="fas fa-shield-alt"></i><span><strong>Keamanan</strong> — Melindungi data dan resource</span></div>
+            </div>
+        </div>
+        <div class="content-card" data-delay="200">
+            <div class="card-number">03</div>
+            <h2>Komponen Arsitektur Sistem</h2>
+            <div class="comp-diagram">
+                <div class="comp-layer" style="--i:1">
+                    <span>User Applications</span>
+                    <small>Browser, Office, Games</small>
+                </div>
+                <div class="comp-layer" style="--i:2">
+                    <span>Shell / GUI</span>
+                    <small>User Interface</small>
+                </div>
+                <div class="comp-layer" style="--i:3">
+                    <span>System Calls</span>
+                    <small>API Interface</small>
+                </div>
+                <div class="comp-layer" style="--i:4">
+                    <span>Kernel</span>
+                    <small>Core OS</small>
+                </div>
+                <div class="comp-layer" style="--i:5">
+                    <span>Hardware</span>
+                    <small>CPU, RAM, Disk</small>
+                </div>
+            </div>
+        </div>
+        <div class="content-card" data-delay="300">
+            <div class="card-number">04</div>
+            <h2>Jenis Arsitektur Sistem</h2>
+            <div class="os-types">
+                <div class="os-type"><i class="fab fa-windows"></i><span>Windows</span></div>
+                <div class="os-type"><i class="fab fa-linux"></i><span>Linux</span></div>
+                <div class="os-type"><i class="fab fa-apple"></i><span>macOS</span></div>
+                <div class="os-type"><i class="fas fa-mobile-alt"></i><span>Android/iOS</span></div>
+                <div class="os-type"><i class="fas fa-server"></i><span>Server OS</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

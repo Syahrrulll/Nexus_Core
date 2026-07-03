@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-content">
+        <h1>Daemon Process</h1>
+        <p>Proses latar belakang yang berjalan terus-menerus</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="content-cards">
+        <div class="content-card" data-delay="0">
+            <div class="card-number">01</div>
+            <h2>Apa itu Daemon?</h2>
+            <p>Daemon adalah proses komputer yang berjalan di latar belakang, bukan di bawah kendali langsung pengguna. Daemon biasanya dimulai saat boot dan berjalan terus hingga sistem dimatikan. Contoh: server web, database, scheduler.</p>
+            <div class="code-block">
+                <span class="code-prompt">$</span> systemctl status sshd
+            </div>
+        </div>
+
+        <div class="content-card" data-delay="100">
+            <div class="card-number">02</div>
+            <h2>Membuat Daemon Sederhana</h2>
+            <p>Berikut script daemon monitoring sistem dari tugas kelompok:</p>
+            <div class="code-block multi-line">
+                <pre><code>#!/bin/bash
+WORK_DIR="/opt/uji_daemon"
+LOG_FILE="$WORK_DIR/uji.log"
+PID_FILE="/var/run/uji_daemon.pid"
+
+monitor_system() {
+    while true; do
+        cpu=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}')
+        mem=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2}')
+        disk=$(df -h / | awk 'NR==2{print $5}')
+        echo "$(date) - CPU: $cpu% MEM: $mem DISK: $disk" >> $LOG_FILE
+        sleep 300
+    done
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="content-card" data-delay="200">
+            <div class="card-number">03</div>
+            <h2>Systemd Service</h2>
+            <p>Mendaftarkan daemon sebagai service systemd agar auto-start saat boot:</p>
+            <div class="code-block multi-line">
+                <pre><code>[Unit]
+Description=System Monitor Daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/uji_daemon/uji_daemon.sh start
+ExecStop=/opt/uji_daemon/uji_daemon.sh stop
+PIDFile=/var/run/uji_daemon.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+            </div>
+        </div>
+
+        <div class="content-card" data-delay="300">
+            <div class="card-number">04</div>
+            <h2>Monitoring Resource</h2>
+            <p>Gunakan tools berikut untuk monitoring daemon dan sistem:</p>
+            <div class="tools-grid">
+                <div class="tool-item"><i class="fas fa-eye"></i><span>ps aux</span><small>Lihat semua proses</small></div>
+                <div class="tool-item"><i class="fas fa-chart-line"></i><span>top / htop</span><small>Real-time monitor</small></div>
+                <div class="tool-item"><i class="fas fa-list"></i><span>systemctl</span><small>Manage services</small></div>
+                <div class="tool-item"><i class="fas fa-journal-whills"></i><span>journalctl</span><small>Lihat log service</small></div>
+                <div class="tool-item"><i class="fas fa-tachometer-alt"></i><span>docker stats</span><small>Container stats</small></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

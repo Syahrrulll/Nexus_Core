@@ -1,0 +1,17 @@
+#Isolasi Aplikasi: Docker memungkinkan aplikasi dan semua dependensinya dijalankan dalam wadah terpisah,
+sehingga menghindari konflik antara aplikasi yang berbeda dan memastikan bahwa setiap aplikasi berjalan dalam lingkungan yang konsisten.
+
+#Portabilitas: Wadah Docker dapat dijalankan di berbagai platform dan lingkungan, baik di laptop pengembang,
+server lokal, maupun di cloud, tanpa perlu melakukan perubahan pada kode aplikasi.
+
+#Pengelolaan Sumber Daya: Docker memungkinkan penggunaan sumber daya yang lebih efisien dengan menjalankan beberapa wadah
+pada satu mesin fisik, sehingga mengurangi overhead dibandingkan dengan mesin virtual tradisional.
+
+#Otomatisasi: Docker mendukung otomatisasi dalam pengembangan dan pengiriman aplikasi,
+termasuk integrasi dengan alat CI/CD (Continuous Integration/Continuous Deployment) untuk mempercepat siklus pengembangan.
+
+#Skalabilitas: Docker memudahkan pengembang untuk menskalakan aplikasi dengan cepat, baik secara horizontal
+(menambah lebih banyak wadah) maupun vertikal (meningkatkan sumber daya untuk wadah yang ada).
+
+#Manajemen Versi: Docker memungkinkan pengembang untuk mengelola versi aplikasi dengan mudah melalui gambar
+(images) yang dapat disimpan dan dibagikan, sehingga memudahkan rollback ke versi sebelumnya jika diperlukan.

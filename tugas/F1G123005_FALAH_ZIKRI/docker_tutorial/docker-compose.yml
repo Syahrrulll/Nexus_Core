@@ -1,0 +1,30 @@
+
+services:
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_falah
+    ports:
+      - "8000:80"
+    volumes:
+      - ./falah:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+
+  mysql_db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1a2b3c
+      MYSQL_DATABASE: falahOS
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1

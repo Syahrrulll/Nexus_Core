@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-content">
+        <h1>Panduan Docker</h1>
+        <p>Container, Image, Compose & Deployment</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="content-cards">
+        <div class="content-card" data-delay="0">
+            <div class="card-number">01</div>
+            <h2>Apa itu Docker?</h2>
+            <p>Docker adalah platform untuk mengembangkan, mengirim, dan menjalankan aplikasi di dalam container. Container memungkinkan aplikasi dipaketkan dengan semua dependensinya, sehingga bisa berjalan konsisten di lingkungan manapun.</p>
+            <div class="code-block"><span class="code-prompt">$</span> docker --version</div>
+        </div>
+
+        <div class="content-card" data-delay="100">
+            <div class="card-number">02</div>
+            <h2>Perintah Dasar Docker</h2>
+            <div class="cmd-list">
+                <div class="cmd-item"><code>docker pull &lt;image&gt;</code><span>Tarik image dari registry</span></div>
+                <div class="cmd-item"><code>docker run -d -p 8080:80 &lt;image&gt;</code><span>Jalankan container</span></div>
+                <div class="cmd-item"><code>docker ps -a</code><span>Lihat semua container</span></div>
+                <div class="cmd-item"><code>docker stop &lt;container&gt;</code><span>Hentikan container</span></div>
+                <div class="cmd-item"><code>docker build -t &lt;name&gt; .</code><span>Build image dari Dockerfile</span></div>
+                <div class="cmd-item"><code>docker exec -it &lt;container&gt; bash</code><span>Masuk ke container</span></div>
+            </div>
+        </div>
+
+        <div class="content-card" data-delay="200">
+            <div class="card-number">03</div>
+            <h2>Docker Compose</h2>
+            <p>Docker Compose digunakan untuk menjalankan multi-container application. Contoh dari tugas projek akhir:</p>
+            <div class="code-block multi-line">
+                <pre><code>version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: awvx0563
+    volumes:
+      - mysql_data:/var/lib/mysql
+volumes:
+  mysql_data:</code></pre>
+            </div>
+        </div>
+
+        <div class="content-card" data-delay="300">
+            <div class="card-number">04</div>
+            <h2>Bedah Container</h2>
+            <p>Teknik investigasi container untuk memahami isi, konfigurasi, dan proses di dalamnya:</p>
+            <div class="tools-grid">
+                <div class="tool-item"><i class="fas fa-info-circle"></i><span>docker inspect</span><small>Detail container</small></div>
+                <div class="tool-item"><i class="fas fa-terminal"></i><span>docker exec</span><small>Masuk container</small></div>
+                <div class="tool-item"><i class="fas fa-chart-bar"></i><span>docker stats</span><small>Resource usage</small></div>
+                <div class="tool-item"><i class="fas fa-history"></i><span>docker history</span><small>Layer image</small></div>
+                <div class="tool-item"><i class="fas fa-file-archive"></i><span>docker save</span><small>Export image</small></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
